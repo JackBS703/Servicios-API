@@ -54,7 +54,7 @@ const updateEmpleado = async (req, res) => {
         const empleadoActualizado = await Empleado.findByIdAndUpdate(
             req.params.id,
             req.body,
-            { 
+            {
                 new: true,           // Devuelve el documento ya actualizado
                 runValidators: true  // Obliga a Mongoose a validar los campos del PATCH
             }
@@ -66,6 +66,30 @@ const updateEmpleado = async (req, res) => {
         res.status(200).json(empleadoActualizado);
     } catch (error) {
         res.status(400).json({ mensaje: 'Error al actualizar', error: error.message });
+    }
+};
+
+/**
+ * @desc    Actualizar completamente un empleado (Reemplazar)
+ * @route   PUT /api/empleados/:id
+ */
+const replaceEmpleado = async (req, res) => {
+    try {
+        const empleadoReemplazado = await Empleado.findOneAndReplace(
+            { _id: req.params.id },
+            req.body,
+            {
+                new: true,           // Devuelve el documento ya reemplazado
+                runValidators: true  // Valida los nuevos datos
+            }
+        );
+
+        if (!empleadoReemplazado) {
+            return res.status(404).json({ mensaje: 'Empleado no encontrado para reemplazar' });
+        }
+        res.status(200).json(empleadoReemplazado);
+    } catch (error) {
+        res.status(400).json({ mensaje: 'Error al reemplazar (verifica que enviaste todos los datos requeridos)', error: error.message });
     }
 };
 
@@ -90,5 +114,6 @@ module.exports = {
     getEmpleadoById,
     createEmpleado,
     updateEmpleado,
+    replaceEmpleado,
     deleteEmpleado,
 };

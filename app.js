@@ -1,13 +1,13 @@
 const express = require('express');
 const cors = require('cors');
 const empleadosRoutes = require('./routes/empleados');
-
+const morgan = require('morgan');
 const app = express();
 
 // Middlewares
 app.use(cors());
 app.use(express.json({ limit: '5mb' }));
-
+app.use(morgan('dev'));
 // Rutas
 app.use('/api/empleados', empleadosRoutes);
 
@@ -21,6 +21,7 @@ app.get('/', (req, res) => {
             obtener: 'GET    /api/empleados/:id',
             crear: 'POST   /api/empleados',
             actualizar: 'PATCH  /api/empleados/:id',
+            reemplazar: 'PUT    /api/empleados/:id',
             eliminar: 'DELETE /api/empleados/:id',
         },
     });
