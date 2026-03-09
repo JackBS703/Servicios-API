@@ -31,14 +31,22 @@ const getEmpleadoById = async (req, res) => {
 };
 
 /**
- * @desc    Crear un nuevo empleado
+ * @desc    Crear uno o múltiples nuevos empleados
  * @route   POST /api/empleados
  */
 const createEmpleado = async (req, res) => {
     try {
-        // Mongoose aplicará automáticamente las validaciones de tu Schema
-        const nuevoEmpleado = new Empleado(req.body);
-        const empleadoGuardado = await nuevoEmpleado.save();
+        let empleadoGuardado;
+        // Verificamos si la petición es un arreglo de varios empleados
+        if (Array.isArray(req.body)) {
+            // Mapeamos para enviar directamente los atributos 'body' si vienen en el formato de test
+            const datosParaInsertar = req.body.map(item => item.body ? item.body : item);
+            empleadoGuardado = await Empleado.insertMany(datosParaInsertar);
+        } else {
+            // Flujo normal: insertando un solo empleado
+            const nuevoEmpleado = new Empleado(req.body.body ? req.body.body : req.body);
+            empleadoGuardado = await nuevoEmpleado.save();
+        }
         res.status(201).json(empleadoGuardado);
     } catch (error) {
         res.status(400).json({ mensaje: 'Error al validar datos', error: error.message });
