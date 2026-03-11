@@ -1,3 +1,4 @@
+const mongoose = require('mongoose')
 const Empleado = require('../models/Empleado');
 
 /**
@@ -20,13 +21,26 @@ const getEmpleados = async (req, res) => {
  */
 const getEmpleadoById = async (req, res) => {
     try {
+        // verificar formato ObjectId antes de buscar
+        if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+            return res.status(404).json({ 
+                mensaje: 'Empleado no encontrado',
+                detalle: 'El ID proporcionado no tiene formato válido'
+            });
+        }
+
         const empleado = await Empleado.findById(req.params.id).populate('jefe', 'nombre');
+        
         if (!empleado) {
             return res.status(404).json({ mensaje: 'Empleado no encontrado' });
         }
+        
         res.status(200).json(empleado);
     } catch (error) {
-        res.status(500).json({ mensaje: 'ID no válido o error de servidor', error: error.message });
+        res.status(500).json({ 
+            mensaje: 'Error de servidor', 
+            error: error.message 
+        });
     }
 };
 
