@@ -1,0 +1,179 @@
+{
+  "info": {
+    "_postman_id": "c4eaf6bf-62be-4a37-bc12-236c60d11f15",
+    "name": "Taller API- Jsonplaceholder",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "38562704"
+  },
+  "item": [
+    {
+      "name": "Request 1 GET Listar",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    },
+    {
+      "name": "Request 2 GET Usuario inexistente ID=999",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com\n/users/999",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com\n"
+          ],
+          "path": [
+            "users",
+            "999"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Request 3 GET Usuario por ID=1",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com\n/users/1",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com\n"
+          ],
+          "path": [
+            "users",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Request 4 GET Posts del usuario ID=1",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com\n/posts/1",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com\n"
+          ],
+          "path": [
+            "posts",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Request 5 POST Crear post nuevo",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"title\": \"Taller Pruebas y Gestión de la Configuración\",\r\n  \"body\": \"Post creado desde Postman por equipo, 2026\",\r\n  \"userId\": 1\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com\n/posts",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com\n"
+          ],
+          "path": [
+            "posts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Request 6 PUT Actualizar post ID=1",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"id\": 1,\r\n  \"title\": \"Post actualizado por equipo\",\r\n  \"body\": \"Cuerpo completamente reemplazado con PUT\",\r\n  \"userId\": 1\r\n}\r\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com\n/posts/1",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com\n"
+          ],
+          "path": [
+            "posts",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Request 7 DELETE Eliminar post ID=1",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://jsonplaceholder.typicode.com\n/posts/1",
+          "protocol": "https",
+          "host": [
+            "jsonplaceholder",
+            "typicode",
+            "com\n"
+          ],
+          "path": [
+            "posts",
+            "1"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
