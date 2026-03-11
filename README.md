@@ -235,6 +235,28 @@ La documentación incluye todos los endpoints con ejemplos de request y response
 | 12 | Eliminar empleado | `DELETE` | `/api/empleados/:id` | 200 ✅ |
 | 13 | DELETE inexistente | `DELETE` | `/api/empleados/000...` | 404 ❌ |
 
+## 🌐  API Pública JSONPlaceholder
+
+**¿Qué es JSONPlaceholder?** API REST falsa y gratuita usada para aprender y probar.  
+**Base URL:** `https://jsonplaceholder.typicode.com`
+
+### 📄 Documentación Publicada
+🔗 **[Ver colección completa en Postman Docs](https://documenter.getpostman.com/view/38562704/2sBXierZf5)**
+
+### Pruebas realizadas (7 casos)
+
+| # | Nombre | Método | Endpoint | Resultado Esperado |
+|---|--------|--------|----------|--------------------|
+| 1 | Listar todos los usuarios | `GET` | `/users` | 200 ✅ — array de 10 usuarios |
+| 2 | Obtener usuario por ID=1 | `GET` | `/users/1` | 200 ✅ — Leanne Graham |
+| 3 | Usuario inexistente ID=999 | `GET` | `/users/999` | 404 ❌ — `{}` vacío |
+| 4 | Posts del usuario ID=1 | `GET` | `/posts?userId=1` | 200 ✅ — 10 posts |
+| 5 | Crear post nuevo | `POST` | `/posts` | 201 ✅ — id: 101 |
+| 6 | Reemplazar post completo | `PUT` | `/posts/1` | 200 ✅ — post actualizado |
+| 7 | Eliminar post ID=1 | `DELETE` | `/posts/1` | 200 ✅ — `{}` vacío |
+
+
+
 
 ## SoapUI
 **¿Qué es?** Herramienta pro para testing REST/SOAP (QA empresarial).
@@ -247,16 +269,7 @@ La documentación incluye todos los endpoints con ejemplos de request y response
 
 **Exportar:** `docs/soapui-empleados.xml`
 
-## 🌐 JSONPlaceholder (API Pública)
-**Base:** `https://jsonplaceholder.typicode.com`
 
-| Endpoint | Método | Ejemplo |
-|----------|--------|---------|
-| `/users` | GET | Lista 10 usuarios |
-| `/users/1` | GET | Usuario Leanne Graham |
-| `/posts` | POST | `{title:"Mi post", body:"...", userId:1}` → 201 |
-
-**Exportar:** `postman-public.json` + `soapui-public.xml` + screenshots
 
 # 📞 Contacto 
 **Autor:** Mariana Montoya Sepúlveda  
