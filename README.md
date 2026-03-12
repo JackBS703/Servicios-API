@@ -36,19 +36,6 @@ Adicionalmente, se realizaron pruebas sobre la API pública **JSONPlaceholder** 
 
 ---
 
-## Tecnologías utilizadas
-
-| Tecnología | Versión | Rol en el proyecto |
-|------------|---------|--------------------|
-| **Node.js** | v20+ | Entorno de ejecución del servidor |
-| **Express.js** | v4+ | Framework para crear rutas HTTP |
-| **MongoDB Atlas** | v7+ | Base de datos NoSQL en la nube |
-| **Mongoose** | v7+ | ODM para definir schemas y validaciones |
-| **Postman** | — | Testing y documentación de la API |
-| **SoapUI** | 5.9.1 | Testing profesional REST/SOAP |
-
----
-
 ## Modelo de datos
 
 ### Entidad: `Empleado`
