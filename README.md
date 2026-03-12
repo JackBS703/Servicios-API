@@ -1,146 +1,76 @@
-#  Taller de Servicios APIs - REST API CRUD Empleados
+# Taller de Servicios APIs — REST API CRUD Empleados
 
-**Estudiantes:** Mateo Berrio Cardona, Esteban Cano Ramirez, Yeimy Daniela Herrera Bedoya, Mariana Montoya Sepúlveda    
-**Materia:** Pruebas y Gestión de la Configuración  
-**Profesor:** David Fernando Mejia Tabares  
-**Universidad:** Politécnico Colombiano Jaime Isaza Cadavid  
-**Fecha de Entrega:** 14 de marzo de 2026  
+**Estudiantes:** Mateo Berrio Cardona, Esteban Cano Ramírez, Yeimy Daniela Herrera Bedoya, Mariana Montoya Sepúlveda
 
-[![Node.js](https://img.shields.io/badge/Node.js-v20+-18C5E7?style=flat&logo=node.js)](https://nodejs.org)
-[![Express](https://img.shields.io/badge/Express-v4+-FFFFFF?style=flat&logo=express)](https://expressjs.com)
-[![MongoDB](https://img.shields.io/badge/MongoDB-v7+-47A248?style=flat&logo=mongodb)](https://mongodb.com)
+**Materia:** Pruebas y Gestión de la Configuración
+**Profesor:** David Fernando Mejía Tabares
+**Universidad:** Politécnico Colombiano Jaime Isaza Cadavid
+**Fecha de entrega:** 14 de marzo de 2026
 
----
-
-##  Tabla de Contenidos
-1. [¿Qué vamos a hacer?](#-qué-vamos-a-hacer)
-2. [Requerimientos del Taller](#-requerimientos-del-taller)
-3. [Tecnologías y Por Qué](#-tecnologías-y-por-qué)
-4. [Modelo de Datos (10 Campos)](#-modelo-de-datos-10-campos)
-5. [Estructura del Proyecto](#-estructura-del-proyecto)
-6. [Pruebas con Postman](#-pruebas-con-postman)
-7. [Pruebas con SoapUI](#-pruebas-con-soapui)
-
+[![Node.js](https://img.shields.io/badge/Node.js-v20+-339933?style=flat&logo=node.js&logoColor=white)](https://nodejs.org)
+[![Express](https://img.shields.io/badge/Express-v4+-000000?style=flat&logo=express&logoColor=white)](https://expressjs.com)
+[![MongoDB](https://img.shields.io/badge/MongoDB-v7+-47A248?style=flat&logo=mongodb&logoColor=white)](https://mongodb.com)
+[![Postman](https://img.shields.io/badge/Postman-Docs-FF6C37?style=flat&logo=postman&logoColor=white)](https://documenter.getpostman.com/view/38562704/2sBXierZW7)
+[![SoapUI](https://img.shields.io/badge/SoapUI-5.9.1-FABD08?style=flat)](https://www.soapui.org)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 ---
 
-## ¿Qué vamos a hacer?
+## Tabla de Contenidos
 
-### Resumen
-Desarrollaremos **desde cero** una API REST completa que permita gestionar información de empleados en una base de datos. La API tendrá operaciones CRUD (Crear, Leer, Actualizar, Eliminar) y la probaremos con dos herramientas profesionales: **Postman** y **SoapUI**.
-
-Usamos HTTP con métodos estándar:
-- **GET** →  (leer)
-- **POST** →  (crear)
-- **PUT/PATCH** →  (modificar)
-- **DELETE** →  (borrar)
-
----
-
-## Requerimientos del Taller
-
-El profesor pidió cumplir **4 objetivos**:
-
-### Objetivo 1: Crear nuestra propia REST API
-- Lenguaje: **Node.js con Express**
-- Base de datos: **MongoDB** (NoSQL, en la nube con Atlas)
-- CRUD completo sobre un modelo de **10 campos con tipos variados**
-
-### Objetivo 2: Probar nuestra API
-- Herramienta 1: **Postman** (interfaz gráfica amigable)
-- Herramienta 2: **SoapUI** (más técnica, usada en empresas)
-- Documentar con capturas de pantalla
-
-### Objetivo 3: Buscar una API gratuita en internet
-- Se propone: **JSONPlaceholder** (https://jsonplaceholder.typicode.com)
-- API fake REST muy usada para aprender y probar
-
-### Objetivo 4: Probar la API pública
-- Mismas herramientas: Postman + SoapUI
-- Comparar cómo funciona vs nuestra API
-
-**Nota** Todo en GitHub con commits profesionales.
+1. [Descripción del proyecto](#descripción-del-proyecto)
+2. [Tecnologías utilizadas](#tecnologías-utilizadas)
+3. [Modelo de datos](#modelo-de-datos)
+4. [Endpoints de la API](#endpoints-de-la-api)
+5. [Estructura del proyecto](#estructura-del-proyecto)
+6. [Cómo ejecutar el proyecto](#cómo-ejecutar-el-proyecto)
+7. [Pruebas con Postman](#pruebas-con-postman)
+8. [Pruebas con SoapUI](#pruebas-con-soapui)
+9. [Referencias](#referencias)
 
 ---
 
-##  Tecnologías y Por Qué
+## Descripción del proyecto
 
-| Tecnología | ¿Qué es? | ¿Por qué la usamos? |
-|------------|----------|---------------------|
-| **Node.js** | JavaScript del lado del servidor | Rápido, popular, mismo lenguaje frontend/backend |
-| **Express.js** | Framework web minimalista | Simplifica crear rutas HTTP en 10 líneas vs 100 |
-| **MongoDB** | Base de datos NoSQL (JSON-like) | Flexible, gratis con Atlas, no necesita SQL |
-| **Mongoose** | ODM para MongoDB | Define estructura (schema) y valida datos |
-| **Postman** | Cliente API con interfaz gráfica | Fácil: click botones vs escribir comandos |
-| **SoapUI** | Herramienta profesional API testing | Usada en QA real, automatiza pruebas |
+Se desarrolló una **API REST completa** para gestionar información de empleados, construida con Node.js, Express y MongoDB Atlas. La API implementa operaciones CRUD completas y fue probada con dos herramientas profesionales de QA: **Postman** y **SoapUI**.
+
+Adicionalmente, se realizaron pruebas sobre la API pública **JSONPlaceholder** para comparar el comportamiento de una API externa con la implementación propia.
 
 ---
 
-## Modelo de Datos (10 Tipos de Datos DIFERENTES)
+## Tecnologías utilizadas
 
-### Entidad: **Empleado**
-Cumple requerimiento de **10 campos con 10 TIPOS DIFERENTES** de MongoDB/Mongoose:
+| Tecnología | Versión | Rol en el proyecto |
+|------------|---------|--------------------|
+| **Node.js** | v20+ | Entorno de ejecución del servidor |
+| **Express.js** | v4+ | Framework para crear rutas HTTP |
+| **MongoDB Atlas** | v7+ | Base de datos NoSQL en la nube |
+| **Mongoose** | v7+ | ODM para definir schemas y validaciones |
+| **Postman** | — | Testing y documentación de la API |
+| **SoapUI** | 5.9.1 | Testing profesional REST/SOAP |
 
-| # | Campo | Tipo | Ejemplo | ¿Por qué este tipo? |
-|---|-------|------|---------|---------------------|
-| 1 | `nombre` | **String** | "Ana María López" | Texto estándar para nombres |
-| 2 | `edad` | **Number** | 28 | Entero simple para cálculos |
-| 3 | `fechaContratacion` | **Date** | "2024-01-15" | Fecha con zona horaria |
-| 4 | `activo` | **Boolean** | true | Estado binario empleado |
-| 5 | `habilidades` | **Array** | ["JavaScript", "React"] | Lista dinámica de skills |
-| 6 | `jefe` | **ObjectId** | "65f1a2..." | Referencia otro empleado |
-| 7 | `salarioPreciso` | **Decimal128** | 3850000.75 | Dinero con decimales precisos |
-| 8 | `metadata` | **Mixed** | `{"lastLogin": "..."}` | JSON flexible sin schema |
-| 9 | `configuraciones` | **Map** | `{"idioma": "es"}` | Mapa clave-valor |
-| 10 | `fotoPerfil` | **Buffer** | Binary (base64) | Imagen binaria almacenada |
+---
 
-### Tipos de Datos 
+## Modelo de datos
 
-#### 1. String (Texto)
-- **Uso:** Nombres, emails, descripciones
-- **Validaciones:** minlength, maxlength, trim, lowercase
+### Entidad: `Empleado`
 
-#### 2. Number (Números enteros/decimales)
-- **Uso:** Edad, cantidades, IDs numéricos
-- **Validaciones:** min, max, integer
+El modelo implementa **10 campos con 10 tipos de datos diferentes** de MongoDB/Mongoose:
 
-#### 3. Date (Fechas)
-- **Uso:** Timestamps, fechas contratación, cumpleaños
-- **Formato:** ISO 8601: `2026-03-05T22:30:00Z`
+| # | Campo | Tipo Mongoose | Ejemplo |
+|---|-------|---------------|---------|
+| 1 | `nombre` | `String` | `"Ana María López"` |
+| 2 | `edad` | `Number` | `28` |
+| 3 | `fechaContratacion` | `Date` | `"2023-08-20T00:00:00Z"` |
+| 4 | `activo` | `Boolean` | `true` |
+| 5 | `habilidades` | `Array` | `["JavaScript", "React"]` |
+| 6 | `jefe` | `ObjectId` | `"65f1a2b3c4d5e6f7..."` |
+| 7 | `salarioPreciso` | `Decimal128` | `3850000.75` |
+| 8 | `metadata` | `Mixed` | `{ "lastLogin": "..." }` |
+| 9 | `configuraciones` | `Map` | `{ "idioma": "es" }` |
+| 10 | `fotoPerfil` | `Buffer` | Imagen en Base64 |
 
-#### 4. Boolean (Verdadero/Falso)
-- **Uso:** Estados activo/inactivo, permisos, flags
-- **Valores:** `true` o `false`
-
-#### 5. Array (Listas)
-- **Uso:** Múltiples valores del mismo tipo
-- **Ejemplo:** Lista habilidades, tags, roles
-
-#### 6. ObjectId (Referencias)
-- **Uso:** Relacionar documentos (como FK en SQL)
-- **Formato:** 24 caracteres hexadecimal: `507f1f77bcf86cd799439011`
-
-#### 7. Decimal128 (Decimales precisos)
-- **Uso:** Dinero, medidas precisas
-- **Ventaja:** No pierde precisión (vs Number float)
-- **Ejemplo:** `2850000.50` (salario exacto)
-
-#### 8. Mixed (Flexible)
-- **Uso:** JSON sin estructura predefinida
-- **Ventaja:** Acepta cualquier tipo/estructura
-- **Ejemplo:** Metadata con campos variables
-
-#### 9. Map (Clave-Valor)
-- **Uso:** Configuraciones, traducciones
-- **Ventaja:** Acceso por clave dinámica
-- **Ejemplo:** `{"idioma": "es", "tema": "dark"}`
-
-#### 10. Buffer (Binario)
-- **Uso:** Imágenes, archivos, datos encriptados
-- **Formato:** Base64 en JSON
-- **Ejemplo:** Foto perfil pequeña (< 16MB)
-
-### Ejemplo JSON Completo
+### Ejemplo de JSON válido
 
 ```json
 {
@@ -148,153 +78,195 @@ Cumple requerimiento de **10 campos con 10 TIPOS DIFERENTES** de MongoDB/Mongoos
   "edad": 29,
   "fechaContratacion": "2023-08-20T00:00:00Z",
   "activo": true,
-  "habilidades": ["Python", "Django", "PostgreSQL", "AWS"],
-  "jefe": "65f1a2b3c4d5e6f7g8h9i0j1",
+  "habilidades": ["Python", "Django", "AWS"],
+  "jefe": null,
   "salarioPreciso": 4200000.50,
-  "metadata": {
-    "lastLogin": "2026-03-05T18:45:30Z",
-    "preferencias": {
-      "tema": "light",
-      "notificacionesEmail": false
-    },
-    "certificaciones": ["AWS Certified", "Scrum Master"]
-  },
-  "configuraciones": {
-    "idioma": "es",
-    "timezone": "America/Bogota",
-    "formatoFecha": "DD/MM/YYYY",
-    "moneda": "COP"
-  },
-  "fotoPerfil": "iVBORw0KGgoAAAANSUhEUgAAAAUA..."
+  "metadata": { "certificaciones": ["AWS Certified", "Scrum Master"] },
+  "configuraciones": { "idioma": "es", "timezone": "America/Bogota" },
+  "fotoPerfil": null
 }
+```
+
+---
+
+## Endpoints de la API
+
+**Base URL local:** `http://localhost:3000`
+
+| Método | Endpoint | Descripción | Código esperado |
+|--------|----------|-------------|----------------|
+| `GET` | `/api/empleados` | Listar todos los empleados | `200 OK` |
+| `GET` | `/api/empleados/:id` | Obtener empleado por ID | `200 OK` / `404` |
+| `POST` | `/api/empleados` | Crear uno o varios empleados | `201 Created` |
+| `PATCH` | `/api/empleados/:id` | Actualizar campos específicos | `200 OK` |
+| `PUT` | `/api/empleados/:id` | Reemplazar documento completo | `200 OK` |
+| `DELETE` | `/api/empleados/:id` | Eliminar empleado | `200 OK` / `404` |
+
+---
+
+## Estructura del proyecto
 
 ```
-## 📁 Estructura del Proyecto
+Servicios-API/
+├── config/
+│   └── db.js                  # Conexión a MongoDB Atlas
+├── controllers/
+│   └── empleadosController.js # Lógica CRUD completa
+├── models/
+│   └── Empleado.js            # Schema Mongoose (10 tipos)
+├── routes/
+│   └── empleados.js           # Definición de rutas HTTP
+├── docs/
+│   ├── postman/               # Colecciones Postman exportadas
+│   ├── soapui/                # Proyectos SoapUI exportados
+│   │   ├── Empleado-API/      # XML y screenshots nuestra API
+│   │   └── jsonplaceholder/   # XML y screenshots API pública
+│   ├── empleados-test-data.json
+│   └── empleados-soapui-data.json
+├── .env.example               # Plantilla de variables de entorno
+├── app.js
+├── server.js
+└── package.json
+```
 
-- Servicios-API/
-- │
-- ├── 📂 config/ # Configuraciones
-- │ └── db.js # Conexión MongoDB con Mongoose
-- │
-- ├── 📂 models/ # Modelos de Datos (Schemas)
-- │ └── Empleado.js # Schema 10 campos + validaciones
-- │
-- ├── 📂 controllers/ # Lógica de Negocio (CRUD)
-- │ └── empleadosController.js # Funciones: crear, listar, actualizar, eliminar
-- │
-- ├── 📂 routes/ # Rutas/Endpoints HTTP
-- │ └── empleados.js # Define POST/GET/PUT/PATCH/DELETE
-- │
-- ├── 📂 docs/ # Documentación y Pruebas
-- │ ├── postman-empleados.json # Colección Postman nuestra API
-- │ ├── postman-public.json # Colección Postman API pública
-- │ ├── soapui-empleados.xml # Proyecto SoapUI nuestra API
-- │ ├── soapui-public.xml # Proyecto SoapUI API pública
-- │ └── 📂 screenshots/ # Capturas pruebas
-- │ ├── postman-create.png
-- │ ├── postman-get-all.png
-- │ ├── soapui-delete.png
-- │ └── ...
-- │
-- ├── 📂 node_modules/ # Dependencias (NO TOCAR, generado por npm)
-- │
-- ├── .env # Variables entorno (MongoDB URI, PORT) -- No pública
-- ├── .gitignore #  (node_modules, .env)
-- ├── package.json # Dependencias y scripts proyecto
-- ├── package-lock.json # Versiones exactas dependencias
-- ├── server.js # ARCHIVO PRINCIPAL - Inicia servidor Express
-- ├── README.md # Este archivo
-- └── LICENSE # Licencia MIT
+---
 
-# 🧪 Pruebas con Postman y SoapUI 
+## Cómo ejecutar el proyecto
 
-##  Pruebas con Postman
+### 1. Clonar el repositorio
 
-**¿Qué es Postman?** Cliente HTTP gráfico para probar APIs sin escribir código.
+```bash
+git clone https://github.com/nightsky18/Servicios-API.git
+cd Servicios-API
+```
 
-### 📄 Documentación Publicada
-🔗 **[Ver colección completa en Postman Docs](https://documenter.getpostman.com/view/38562704/2sBXierZW7)**
+### 2. Instalar dependencias
 
-La documentación incluye todos los endpoints con ejemplos de request y response.
+```bash
+npm install
+```
 
-### Pruebas realizadas (13 casos — API Propia)
+### 3. Configurar variables de entorno
 
-| # | Nombre | Método | Endpoint | Resultado Esperado |
-|---|--------|--------|----------|--------------------|
-| 1 | Crear empleado válido | `POST` | `/api/empleados` | 201 ✅ |
-| 2 | Crear múltiples empleados | `POST` | `/api/empleados` | 201 ✅ |
-| 3 | Edad menor de 18 | `POST` | `/api/empleados` | 400 ❌ |
-| 4 | Nombre muy corto | `POST` | `/api/empleados` | 400 ❌ |
-| 5 | Sin salarioPreciso | `POST` | `/api/empleados` | 400 ❌ |
-| 6 | ObjectId inválido en jefe | `POST` | `/api/empleados` | 400 ❌ |
-| 7 | Listar todos | `GET` | `/api/empleados` | 200 ✅ |
-| 8 | Obtener por ID | `GET` | `/api/empleados/:id` | 200 ✅ |
-| 9 | ID inexistente | `GET` | `/api/empleados/000...` | 404 ❌ |
-| 10 | Actualizar parcial | `PATCH` | `/api/empleados/:id` | 200 ✅ |
-| 11 | Reemplazar completo | `PUT` | `/api/empleados/:id` | 200 ✅ |
-| 12 | Eliminar empleado | `DELETE` | `/api/empleados/:id` | 200 ✅ |
-| 13 | DELETE inexistente | `DELETE` | `/api/empleados/000...` | 404 ❌ |
+```bash
+cp .env.example .env
+```
 
-## 🌐  API Pública JSONPlaceholder
+Editar `.env` con los valores reales:
 
-**¿Qué es JSONPlaceholder?** API REST falsa y gratuita usada para aprender y probar.  
-**Base URL:** `https://jsonplaceholder.typicode.com`
+```env
+MONGO_URI=mongodb+srv://USUARIO:PASSWORD@cluster0.xxxxx.mongodb.net/empleadosDB
+PORT=3000
+```
 
-### 📄 Documentación Publicada
-🔗 **[Ver colección completa en Postman Docs](https://documenter.getpostman.com/view/38562704/2sBXierZf5)**
+### 4. Iniciar el servidor
 
-### Pruebas realizadas (7 casos)
+```bash
+# Modo producción
+npm start
 
-| # | Nombre | Método | Endpoint | Resultado Esperado |
-|---|--------|--------|----------|--------------------|
-| 1 | Listar todos los usuarios | `GET` | `/users` | 200 ✅ — array de 10 usuarios |
-| 2 | Obtener usuario por ID=1 | `GET` | `/users/1` | 200 ✅ — Leanne Graham |
-| 3 | Usuario inexistente ID=999 | `GET` | `/users/999` | 404 ❌ — `{}` vacío |
-| 4 | Posts del usuario ID=1 | `GET` | `/posts?userId=1` | 200 ✅ — 10 posts |
-| 5 | Crear post nuevo | `POST` | `/posts` | 201 ✅ — id: 101 |
-| 6 | Reemplazar post completo | `PUT` | `/posts/1` | 200 ✅ — post actualizado |
-| 7 | Eliminar post ID=1 | `DELETE` | `/posts/1` | 200 ✅ — `{}` vacío |
+# Modo desarrollo (recarga automática)
+npm run dev
+```
 
+Servidor disponible en `http://localhost:3000`
 
+---
 
+## Pruebas con Postman
 
-## SoapUI
-**¿Qué es?** Herramienta pro para testing REST/SOAP (QA empresarial).
+Postman es un cliente HTTP gráfico que permite probar APIs de forma visual, documentar endpoints y compartir colecciones con el equipo.
 
-### Pasos Rápidos
-1. **New REST Project:** URI `http://localhost:3000/api/empleados`
-2. **Resources:** `/` (GET/POST), `/:id` (GET/PATCH/DELETE)
-3. **Headers:** `Content-Type: application/json`
-4. **Assertions:** Status 200, Response <500ms
+### Documentación publicada
 
-**Exportar:** `docs/soapui-empleados.xml`
+- [Nuestra API — Postman Docs](https://documenter.getpostman.com/view/38562704/2sBXierZW7)
+- [JSONPlaceholder — Postman Docs](https://documenter.getpostman.com/view/38562704/2sBXierZf5)
 
+### Nuestra API — 13 casos de prueba
 
+| # | Nombre | Método | Endpoint | Resultado |
+|---|--------|--------|----------|-----------|
+| 1 | Crear empleado válido | `POST` | `/api/empleados` | `201` ✅ |
+| 2 | Crear múltiples empleados | `POST` | `/api/empleados` | `201` ✅ |
+| 3 | Edad menor de 18 | `POST` | `/api/empleados` | `400` ❌ |
+| 4 | Nombre muy corto | `POST` | `/api/empleados` | `400` ❌ |
+| 5 | Sin salarioPreciso | `POST` | `/api/empleados` | `400` ❌ |
+| 6 | ObjectId inválido en jefe | `POST` | `/api/empleados` | `400` ❌ |
+| 7 | Listar todos | `GET` | `/api/empleados` | `200` ✅ |
+| 8 | Obtener por ID | `GET` | `/api/empleados/:id` | `200` ✅ |
+| 9 | ID inexistente | `GET` | `/api/empleados/:id` | `404` ❌ |
+| 10 | Actualizar parcialmente | `PATCH` | `/api/empleados/:id` | `200` ✅ |
+| 11 | Reemplazar completamente | `PUT` | `/api/empleados/:id` | `200` ✅ |
+| 12 | Eliminar empleado | `DELETE` | `/api/empleados/:id` | `200` ✅ |
+| 13 | Eliminar ID inexistente | `DELETE` | `/api/empleados/:id` | `404` ❌ |
 
-# 📞 Contacto 
-**Autor:** Mariana Montoya Sepúlveda  
-**Email:** [mariana_montoya82221@elpoli.edu.co](mailto:mariana_montoya82221@elpoli.edu.co)  
-**GitHub:** [github.com/nightsky18](https://github.com/nightsky18)   
+### JSONPlaceholder — 7 casos de prueba
 
-## Referencias y Recursos
+| # | Nombre | Método | Endpoint | Resultado |
+|---|--------|--------|----------|-----------|
+| 1 | Listar todos los usuarios | `GET` | `/users` | `200` ✅ |
+| 2 | Obtener usuario por ID=1 | `GET` | `/users/1` | `200` ✅ |
+| 3 | Usuario inexistente ID=999 | `GET` | `/users/999` | `404` ❌ |
+| 4 | Posts del usuario ID=1 | `GET` | `/posts?userId=1` | `200` ✅ |
+| 5 | Crear post nuevo | `POST` | `/posts` | `201` ✅ |
+| 6 | Reemplazar post completo | `PUT` | `/posts/1` | `200` ✅ |
+| 7 | Eliminar post ID=1 | `DELETE` | `/posts/1` | `200` ✅ |
 
-### Documentación Oficial
-- [Express.js Docs](https://expressjs.com/)
-- [Mongoose Docs](https://mongoosejs.com/docs/)
+---
+
+## Pruebas con SoapUI
+
+SoapUI es una herramienta profesional de testing usada en entornos empresariales de QA. Permite probar APIs REST y SOAP, y organizar pruebas en proyectos exportables.
+
+### Importar proyectos
+
+1. Abrir SoapUI
+2. `File → Import Project`
+3. Seleccionar el archivo `.xml` de la carpeta `docs/soapui/`
+
+### Nuestra API — 11 casos de prueba
+
+| # | Nombre | Método | Resultado | Evidencia |
+|---|--------|--------|-----------|-----------|
+| 1 | Crear Ana QA (BUENO_1) | `POST` | `201` ✅ | [ver](docs/soapui/Empleado-API/soapui-POST-bueno1.png) |
+| 2 | Crear Carlos QA (BUENO_2) | `POST` | `201` ✅ | [ver](docs/soapui/Empleado-API/soapui-POST-bueno2.png) |
+| 3 | Edad menor de 18 (MALO_1) | `POST` | `400` ❌ | [ver](docs/soapui/Empleado-API/soapui-POST-malo1-edad.png) |
+| 4 | Nombre muy corto (MALO_2) | `POST` | `400` ❌ | [ver](docs/soapui/Empleado-API/soapui-POST-malo2-nombre.png) |
+| 5 | Sin salarioPreciso (MALO_3) | `POST` | `400` ❌ | [ver](docs/soapui/Empleado-API/soapui-POST-malo3-salario.png) |
+| 6 | Listar todos los empleados | `GET` | `200` ✅ | [ver](docs/soapui/Empleado-API/soapui-GET-todos.png) |
+| 7 | Obtener empleado por ID | `GET` | `200` ✅ | [ver](docs/soapui/Empleado-API/soapui-GET-id.png) |
+| 8 | Actualizar parcialmente | `PATCH` | `200` ✅ | [ver](docs/soapui/Empleado-API/soapui-PATCH-ana.png) |
+| 9 | Reemplazar completamente | `PUT` | `200` ✅ | [ver](docs/soapui/Empleado-API/soapui-PUT-carlos.png) |
+| 10 | PUT ID inexistente | `PUT` | `404` ❌ | [ver](docs/soapui/Empleado-API/soapui-PUT-malo1-inexistente.png) |
+| 11 | Eliminar empleado | `DELETE` | `200` ✅ | [ver](docs/soapui/Empleado-API/soapui-DELETE-ana.png) |
+
+### JSONPlaceholder — 7 casos de prueba
+
+| # | Nombre | Método | Resultado | Evidencia |
+|---|--------|--------|-----------|-----------|
+| 1 | Listar todos los usuarios | `GET` | `200` ✅ | [ver](docs/soapui/jsonplaceholder/soapui-public-GET-usuarios.png) |
+| 2 | Obtener usuario por ID=1 | `GET` | `200` ✅ | [ver](docs/soapui/jsonplaceholder/soapui-public-GET-usuario-id.png) |
+| 3 | Usuario inexistente ID=999 | `GET` | `404` ❌ | [ver](docs/soapui/jsonplaceholder/soapui-public-GET-404.png) |
+| 4 | Posts del usuario ID=1 | `GET` | `200` ✅ | [ver](docs/soapui/jsonplaceholder/soapui-public-GET-posts.png) |
+| 5 | Crear post nuevo | `POST` | `201` ✅ | [ver](docs/soapui/jsonplaceholder/soapui-public-POST-crear.png) |
+| 6 | Reemplazar post completo | `PUT` | `200` ✅ | [ver](docs/soapui/jsonplaceholder/soapui-public-PUT-actualizar.png) |
+| 7 | Eliminar post ID=1 | `DELETE` | `200` ✅ | [ver](docs/soapui/jsonplaceholder/soapui-public-DELETE.png) |
+
+---
+
+## Referencias
+
+- [Express.js — Documentación oficial](https://expressjs.com/)
+- [Mongoose — Documentación oficial](https://mongoosejs.com/docs/)
 - [MongoDB Atlas](https://docs.atlas.mongodb.com/)
-- [Postman Learning](https://learning.postman.com/)
+- [Postman Learning Center](https://learning.postman.com/)
 - [SoapUI Docs](https://www.soapui.org/docs/)
-
-
-### APIs Públicas Alternativas
 - [JSONPlaceholder](https://jsonplaceholder.typicode.com/)
-- [ReqRes](https://reqres.in/)
-- [PokeAPI](https://pokeapi.co/)
-- [OpenWeatherMap](https://openweathermap.org/api)
 
-**Última actualización:** 5 de marzo de 2026  
-**Versión:** 1.0 - Didáctica Completa  
-**Estado:**  En desarrollo →  Entrega 14/marzo/2026
+---
 
+**Autora del repositorio:** Mariana Montoya Sepúlveda
+**Email:** [mariana_montoya82221@elpoli.edu.co](mailto:mariana_montoya82221@elpoli.edu.co)
+**GitHub:** [github.com/nightsky18](https://github.com/nightsky18)
 
-
+**Última actualización:** 11 de marzo de 2026 | **Estado:** Entregado
