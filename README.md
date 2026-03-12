@@ -1,11 +1,9 @@
 # Taller de Servicios APIs — REST API CRUD Empleados
 
-**Estudiantes:** Mateo Berrio Cardona, Esteban Cano Ramírez, Yeimy Daniela Herrera Bedoya, Mariana Montoya Sepúlveda
-
-**Materia:** Pruebas y Gestión de la Configuración
-**Profesor:** David Fernando Mejía Tabares
-**Universidad:** Politécnico Colombiano Jaime Isaza Cadavid
-**Fecha de entrega:** 14 de marzo de 2026
+- **Materia:** Pruebas y Gestión de la Configuración
+- **Profesor:** David Fernando Mejía Tabares
+- **Universidad:** Politécnico Colombiano Jaime Isaza Cadavid
+- **Fecha de entrega:** 14 de marzo de 2026
 
 [![Node.js](https://img.shields.io/badge/Node.js-v20+-339933?style=flat&logo=node.js&logoColor=white)](https://nodejs.org)
 [![Express](https://img.shields.io/badge/Express-v4+-000000?style=flat&logo=express&logoColor=white)](https://expressjs.com)
@@ -19,13 +17,13 @@
 ## Tabla de Contenidos
 
 1. [Descripción del proyecto](#descripción-del-proyecto)
-2. [Tecnologías utilizadas](#tecnologías-utilizadas)
-3. [Modelo de datos](#modelo-de-datos)
-4. [Endpoints de la API](#endpoints-de-la-api)
-5. [Estructura del proyecto](#estructura-del-proyecto)
-6. [Cómo ejecutar el proyecto](#cómo-ejecutar-el-proyecto)
-7. [Pruebas con Postman](#pruebas-con-postman)
-8. [Pruebas con SoapUI](#pruebas-con-soapui)
+2. [Modelo de datos](#modelo-de-datos)
+3. [Endpoints de la API](#endpoints-de-la-api)
+4. [Estructura del proyecto](#estructura-del-proyecto)
+5. [Cómo ejecutar el proyecto](#cómo-ejecutar-el-proyecto)
+6. [Pruebas con Postman](#pruebas-con-postman)
+7. [Pruebas con SoapUI](#pruebas-con-soapui)
+8. [Autores](#autores)
 9. [Referencias](#referencias)
 
 ---
@@ -253,6 +251,12 @@ SoapUI es una herramienta profesional de testing usada en entornos empresariales
 | 7 | Eliminar post ID=1 | `DELETE` | `200` ✅ | [ver](docs/soapui/jsonplaceholder/soapui-public-DELETE.png) |
 
 ---
+## Autores
+  - Mateo Berrio Cardona
+  - Esteban Cano Ramírez
+  - Yeimy Daniela Herrera Bedoya
+  - Mariana Montoya Sepúlveda
+
 
 ## Referencias
 
@@ -264,9 +268,5 @@ SoapUI es una herramienta profesional de testing usada en entornos empresariales
 - [JSONPlaceholder](https://jsonplaceholder.typicode.com/)
 
 ---
-
-**Autora del repositorio:** Mariana Montoya Sepúlveda
-**Email:** [mariana_montoya82221@elpoli.edu.co](mailto:mariana_montoya82221@elpoli.edu.co)
-**GitHub:** [github.com/nightsky18](https://github.com/nightsky18)
 
 **Última actualización:** 11 de marzo de 2026 | **Estado:** Entregado
